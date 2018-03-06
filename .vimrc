@@ -33,7 +33,7 @@ set noexpandtab
 set tags=tags; "This way we get the tags file recursively
 
 set splitbelow "This way the preview window will appear below
-set previewheight=7 "The preview height will be 4 when we open a preview window
+set previewheight=10 "The preview height will be 4 when we open a preview window
 
 "highlights the 110th column
 set colorcolumn=110
@@ -51,6 +51,9 @@ let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
 nmap <F8> :TagbarToggle<CR>
+nmap <F7> :res +10<CR>
+nmap <F6> :res -10<CR>
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 let g:AutoComplPop_Behavior = { 
 \ 'c': [ {'command' : "\<C-x>\<C-o>",
