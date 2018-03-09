@@ -12,7 +12,7 @@ Run the following command:
 
 Now clone the repo into a bare repository:
 
-`git clone --bare <git-repo-url> $HOME/.cfg`
+`git clone --bare https://github.com/jonathanxia/dotfiles $HOME/.cfg`
 
 and then you can now run (assuming your bashrc is successfully sourced),
 
@@ -33,3 +33,5 @@ vim plugins. Run
 If you already have the repository, then it'll complain but that's fine since you already
 have it. Also, this assumes you have pathogen working, which you should go and get. I'll
 maybe add in pathogen to automate that too...
+
+Get pathogen here: https://github.com/tpope/vim-pathogen
