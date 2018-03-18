@@ -55,9 +55,4 @@ nmap <F7> :res +10<CR>
 nmap <F6> :res -10<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
-let g:AutoComplPop_Behavior = { 
-\ 'c': [ {'command' : "\<C-x>\<C-o>",
-\       'pattern' : ".",
-\       'repeat' : 0}
-\      ]  
-\}
+set completeopt-=preview "Not have preview window jump out every time
