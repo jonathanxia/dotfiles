@@ -42,7 +42,10 @@ highlight ColorColumn ctermbg=darkgrey
 "This allows vim to search for included header files
 let &path.="src/include,/usr/include/AL,"
 set includeexpr=substitute(v:fname,'\\.','/','g')
+
+"Always display the status line
 set laststatus=2
+
 execute pathogen#infect()
 
 let g:airline_section_y='BN: %{bufnr("%")}' "The buffer number in status bar
@@ -51,8 +54,8 @@ let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
 nmap <F8> :TagbarToggle<CR>
-nmap <F7> :res +10<CR>
-nmap <F6> :res -10<CR>
+nmap <F7> :res +2<CR>
+nmap <F6> :res -2<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 set completeopt-=preview "Not have preview window jump out every time
