@@ -10,3 +10,6 @@ git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
 git clone https://github.com/vim-scripts/AutoComplPop ~/.vim/bundle/AutoComplPop
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 
+cd ~/.vim/bundle/jedi-vim
+git submodule update --init
+cd ~
