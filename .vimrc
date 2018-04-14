@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdcommenter'
 Bundle 'jistr/vim-nerdtree-tabs'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +54,7 @@ let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
 
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
+imap <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
 nmap <F6> :res -2<CR>
