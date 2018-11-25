@@ -52,6 +52,7 @@ execute pathogen#infect()
 
 let g:airline_section_y='BN: %{bufnr("%")}' "The buffer number in status bar
 let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
+let g:airline_theme='dark'
 
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
