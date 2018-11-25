@@ -19,6 +19,9 @@ git clone https://github.com/vim-scripts/AutoComplPop ~/.vim/bundle/AutoComplPop
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+cd ~/.vim/bundle
+git clone https://github.com/chriskempson/base16-vim.git
+cd ~
 
 mkdir ~/.vim/bundle/jedi-vim
 cd ~/.vim/bundle/jedi-vim
