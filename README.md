@@ -35,3 +35,11 @@ have it. Also, this assumes you have pathogen working, which you should go and g
 maybe add in pathogen to automate that too...
 
 Get pathogen here: https://github.com/tpope/vim-pathogen
+
+Add this to your `.bashrc` to get the base16 color scheme working:
+
+`# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"`
