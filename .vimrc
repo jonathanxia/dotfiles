@@ -14,6 +14,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdcommenter'
 Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-airline/vim-airline-themes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -61,3 +62,5 @@ nmap <F6> :res -2<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 set completeopt-=preview "Not have preview window jump out every time
+let base16colorspace=256
+colorscheme base16-google-dark
