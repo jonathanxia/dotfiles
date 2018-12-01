@@ -1,4 +1,5 @@
 set nocompatible
+syntax on
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -52,7 +53,7 @@ execute pathogen#infect()
 
 let g:airline_section_y='BN: %{bufnr("%")}' "The buffer number in status bar
 let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
-let g:airline_theme='dark'
+let g:airline_theme='deus'
 
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
@@ -61,6 +62,7 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
 nmap <F6> :res -2<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+imap ` <Esc>
 
 set completeopt-=preview "Not have preview window jump out every time
 let base16colorspace=256
