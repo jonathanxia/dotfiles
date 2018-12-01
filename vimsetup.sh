@@ -16,7 +16,7 @@ git clone https://github.com/jistr/vim-nerdtree-tabs ~/.vim/bundle/vim-nerdtree-
 
 # Install ctags
 # Comment this line out if you already have ctags
-sudo apt-get install exuberant-ctags
+# sudo apt-get install exuberant-ctags
 
 # Gives you tags in your vim, with the tag bar on the right, displaying function names
 git clone https://github.com/xolox/vim-misc ~/.vim/bundle/vim-misc
