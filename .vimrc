@@ -62,6 +62,8 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
 nmap <F6> :res -2<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <F9> :Gstatus<CR>
+nmap <F10> :Gcommit%<CR>
 
 set completeopt-=preview "Not have preview window jump out every time
 let base16colorspace=256
