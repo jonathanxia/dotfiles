@@ -31,7 +31,7 @@ set secure
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 
 set tags=tags; "This way we get the tags file recursively
 
