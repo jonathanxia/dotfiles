@@ -42,6 +42,9 @@ set previewheight=10 "The preview height will be 4 when we open a preview window
 set colorcolumn=110
 highlight ColorColumn ctermbg=darkgrey
 
+"set numbering on the side
+set number
+
 "This allows vim to search for included header files
 let &path.="src/include,/usr/include/AL,"
 set includeexpr=substitute(v:fname,'\\.','/','g')
