@@ -30,6 +30,9 @@ git clone https://github.com/vim-scripts/AutoComplPop ~/.vim/bundle/AutoComplPop
 # ctrl-p, which is a file finder. Press ctrl-P and you can search for files
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
+# ledger for vim
+git clone https://github.com/ledger/vim-ledger
+
 # Base 16 shells to get the google dark color scheme.
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 cd ~/.vim/bundle

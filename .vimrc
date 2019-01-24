@@ -71,3 +71,8 @@ nmap <F10> :Gcommit%<CR>
 set completeopt-=preview "Not have preview window jump out every time
 let base16colorspace=256
 colorscheme base16-google-dark
+
+
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+nmap <F11> :LedgerAlign<CR>
+vmap <F11> :LedgerAlign<CR>
