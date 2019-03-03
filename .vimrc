@@ -38,8 +38,8 @@ set tags=tags; "This way we get the tags file recursively
 set splitbelow "This way the preview window will appear below
 set previewheight=10 "The preview height will be 4 when we open a preview window
 
-"highlights the 110th column
-set colorcolumn=110
+"highlights the 72nd column
+set colorcolumn=72
 highlight ColorColumn ctermbg=darkgrey
 
 "set numbering on the side
