@@ -38,8 +38,8 @@ set tags=tags; "This way we get the tags file recursively
 set splitbelow "This way the preview window will appear below
 set previewheight=10 "The preview height will be 4 when we open a preview window
 
-"highlights the 72nd column
-set colorcolumn=72
+"highlights the 79th column
+set colorcolumn=79
 highlight ColorColumn ctermbg=darkgrey
 
 "set numbering on the side
@@ -57,6 +57,9 @@ execute pathogen#infect()
 let g:airline_section_y='BN: %{bufnr("%")}' "The buffer number in status bar
 let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
 let g:airline_theme='dark'
+
+"make easy tags run asynchronously
+let g:easytags_async=1
 
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
