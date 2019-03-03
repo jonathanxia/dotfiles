@@ -7,31 +7,9 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 # Adding Vundle (an rtp manager, also necessary)
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 
-# Makes the bottom look fancy.
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-
-# Gives you the pane on the left with files
-git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
-git clone https://github.com/jistr/vim-nerdtree-tabs ~/.vim/bundle/vim-nerdtree-tabs
-
 # Install ctags
 # Comment this line out if you already have ctags
 sudo apt-get install exuberant-ctags
-
-# Gives you tags in your vim, with the tag bar on the right, displaying function names
-git clone https://github.com/xolox/vim-misc ~/.vim/bundle/vim-misc
-git clone https://github.com/xolox/vim-easytags ~/.vim/bundle/vim-easytags
-git clone https://github.com/craigemery/vim-autotag ~/.vim/bundle/vim-autotag
-git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
-
-# Some autocomplete garbage
-git clone https://github.com/vim-scripts/AutoComplPop ~/.vim/bundle/AutoComplPop
-
-# ctrl-p, which is a file finder. Press ctrl-P and you can search for files
-git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-
-# ledger for vim
-git clone https://github.com/ledger/vim-ledger
 
 # Base 16 shells to get the google dark color scheme.
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
