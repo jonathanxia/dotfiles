@@ -13,9 +13,6 @@ sudo apt-get install exuberant-ctags
 
 # Base 16 shells to get the google dark color scheme.
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-cd ~/.vim/bundle
-git clone https://github.com/chriskempson/base16-vim.git
-cd ~
 
 # Gets you jedi vim, for python autocompletion and more semantic understanding. Could be slow though
 #...for some reason

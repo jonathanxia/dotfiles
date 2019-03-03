@@ -25,6 +25,7 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'ledger/vim-ledger'
+Plugin 'chriskempson/base16-vim.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
