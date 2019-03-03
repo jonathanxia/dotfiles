@@ -69,6 +69,7 @@ let g:airline_theme='dark'
 
 "make easy tags run asynchronously
 let g:easytags_async=1
+let g:easytags_dynamic_files=1
 
 map <C-n> :NERDTreeTabsToggle<CR>
 map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
