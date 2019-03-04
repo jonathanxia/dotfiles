@@ -23,7 +23,6 @@ Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'craigemery/vim-autotag'
 Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/AutoComplPop'
 Plugin 'ledger/vim-ledger'
 Plugin 'chriskempson/base16-vim.git'
 " All of your Plugins must be added before the following line
@@ -56,7 +55,7 @@ highlight ColorColumn ctermbg=darkgrey
 set number
 
 "This allows vim to search for included header files
-let &path.="src/include,/usr/include/AL,"
+let &path.="src/include,/usr/include/,"
 set includeexpr=substitute(v:fname,'\\.','/','g')
 
 "Always display the status line
