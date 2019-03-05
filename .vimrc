@@ -12,7 +12,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -89,3 +89,5 @@ colorscheme base16-google-dark
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 nmap <F11> :LedgerAlign<CR>
 vmap <F11> :LedgerAlign<CR>
+
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'

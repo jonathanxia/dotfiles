@@ -14,9 +14,7 @@ sudo apt-get install exuberant-ctags
 # Base 16 shells to get the google dark color scheme.
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-# Gets you jedi vim, for python autocompletion and more semantic understanding. Could be slow though
-#...for some reason
-mkdir -p ~/.vim/bundle/jedi-vim
-cd ~/.vim/bundle/jedi-vim
-git submodule update --init
-cd ~
+echo "check to see you have cmake installed and vim has python enabled"
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --java-completer
+
