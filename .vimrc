@@ -91,6 +91,7 @@ nmap <F11> :LedgerAlign<CR>
 vmap <F11> :LedgerAlign<CR>
 
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=0
 
 nnoremap <leader>jd :YcmComplete GoTo<CR>
 nnoremap <leader>jr :YcmComplete GoToReferences<CR>
