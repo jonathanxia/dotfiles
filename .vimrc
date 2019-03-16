@@ -15,7 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
@@ -94,6 +94,9 @@ let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 "Disable YCM for ledger files
 let g:ycm_filetype_blacklist = {'ledger': 1}
+
+highlight SpellCap ctermbg=DarkRed
+highlight SpellBad ctermbg=DarkRed
 
 nnoremap <leader>jd :YcmComplete GoTo<CR>
 nnoremap <leader>jr :YcmComplete GoToReferences<CR>
