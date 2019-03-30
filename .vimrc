@@ -18,7 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'craigemery/vim-autotag'
@@ -72,7 +72,7 @@ let g:easytags_async=1
 let g:easytags_dynamic_files=1
 
 map <C-n> :NERDTreeTabsToggle<CR>
-map <C-l> :w<CR> :!latexmk -pdf<CR><CR>
+map <C-l> :w<CR> :!pdflatex %<CR><CR>
 imap <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
