@@ -6,10 +6,6 @@ Add the following line to your .bashrc
 
 `alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'`
 
-Run the following command:
-
-`echo ".cfg" >> .gitignore`
-
 Now clone the repo into a bare repository:
 
 `git clone --bare https://github.com/jonathanxia/dotfiles $HOME/.cfg`
