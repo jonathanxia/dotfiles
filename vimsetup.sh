@@ -32,3 +32,4 @@ cd ~/.config/base16-shell
 echo "Last few lines should not be blue!"
 cd ~
 
+git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%d%Creset %C(cyan)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --all"
