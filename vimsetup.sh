@@ -1,6 +1,6 @@
 #!/bin/bash
 
-config config --local status.showUntrackedFiles no
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
 # Add pathogen (rtp manager, necessary)
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -25,4 +25,10 @@ vim +PluginInstall +qall
 echo "check to see you have cmake installed and vim has python enabled"
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --java-completer
+
+echo "Running color test"
+cd ~/.config/base16-shell
+./colortest
+echo "Last few lines should not be blue!"
+cd ~
 
