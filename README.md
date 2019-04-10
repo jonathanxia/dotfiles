@@ -17,23 +17,9 @@ and then you can now run (assuming your bashrc is successfully sourced),
 Note that this might overwrite some of your files, and git will complain if you are
 about to do so. You can back them up if you care, delete if you don't.
 
-Run this command to not show untracked files:
-
-`config config --local status.showUntrackedFiles no`
-
-There should be a shell script that will be used to clone all the repositories for the
-vim plugins. *You should first check the script*. Read through the comments to see what it is installing
-and comment out lines that should not be run for you (like the `sudo apt-get install`). Run
+Run
 
 `./vimsetup.sh`
-
-Add this to your `.bashrc` to get the base16 color scheme working:
-
-`# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"`
 
 Getting this base16 thing to work requires you to have a 256 color terminal. You can probably configure
 this in your terminal settings. You can run
