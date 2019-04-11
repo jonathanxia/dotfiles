@@ -15,3 +15,4 @@ rm -fv vimdestroy.sh
 rm -fv .vimtags
 rm -fv .vimrc_background
 rm -fv .viminfo
+rm -fv README.md
