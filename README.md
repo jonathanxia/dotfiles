@@ -58,3 +58,6 @@ installed, so don't install it). Be sure to find the correct
 config directory for Python.
 
 The last part will then rerun the YCM installation.
+
+Note that you may be missing Python headers. You'll have to install
+them via `apt-get install python3-dev` or `apt-get install python-dev`.
