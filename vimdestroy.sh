@@ -1,16 +1,17 @@
 #!/bin/bash
 
-rm -f ~/.vim/autoload/pathogen.vim
-rm -rf ~/.vim/bundle/*
+rm -fv ~/.vim/autoload/pathogen.vim
+echo "Removing Plugin gunk"
+rm -rfv ~/.vim/bundle/*
 
-rm -rf ~/.config/base16-shell
-rm -f .vimrc
-rm -f .ycm_extra_conf.py
-rm -f .tmux.conf
-rm -f .gitignore
-rm -rf .cfg
-rm -f vimsetup.sh
-rm -f vimdestroy.sh
-rm -f .vimtags
-rm -f .vimrc_background
-rm -f .viminfo
+rm -rfv ~/.config/base16-shell
+rm -fv .vimrc
+rm -fv .ycm_extra_conf.py
+rm -fv .tmux.conf
+rm -fv .gitignore
+rm -rfv .cfg
+rm -fv vimsetup.sh
+rm -fv vimdestroy.sh
+rm -fv .vimtags
+rm -fv .vimrc_background
+rm -fv .viminfo
