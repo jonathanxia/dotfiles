@@ -42,6 +42,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+set backspace=2
+
 set tags=tags; "This way we get the tags file recursively
 
 set splitbelow "This way the preview window will appear below
