@@ -1,3 +1,4 @@
+import os
 SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 
 def IsHeaderFile(filename):
