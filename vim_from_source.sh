@@ -1,5 +1,16 @@
 #!/bin/bash
 
+#------------------Getting curses library---------------
+cd ~
+CURSESNAME=ncurses-6.1
+wget http://ftp.gnu.org/pub/gnu/ncurses/$CURSESNAME.tar.gz
+tar -xzvf $CURSESNAME.tar.gz
+cd $CURSESNAME
+./configure --prefix=$HOME/usr/local
+make
+make install
+cd ~
+
 #------------------Compiling VIM from source-------------
 cd ~
 git clone https://github.com/vim/vim.git
@@ -12,16 +23,16 @@ git checkout $VIMVERSION
 # If you want to use Python 3 you can add --enable-python3interp=yes
 # Also you may need to add this or something --with-python3-config-dir=/usr/lib/python3.5/config
 # Where the config directory is set to something correct
-./configure --with-features=huge \
-            --enable-multibyte \
-            --enable-rubyinterp=yes \
-            --enable-pythoninterp=yes \
-            --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
-            --enable-perlinterp=yes \
-            --enable-luainterp=yes \
-            --enable-gui=gtk2 \
-            --enable-cscope \
-            --prefix=$PREFIXNAME # CHANGE ME to determine where to go. Absolute paths only
+LDFLAGS=-L$HOME/usr/local/lib ./configure --with-features=huge \
+                                --enable-multibyte \
+                                --enable-rubyinterp=yes \
+                                --enable-pythoninterp=yes \
+                                --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+                                --enable-perlinterp=yes \
+                                --enable-luainterp=yes \
+                                --enable-gui=gtk2 \
+                                --enable-cscope \
+                                --prefix=$PREFIXNAME
 make
 make install
 
@@ -44,3 +55,6 @@ cd ~/.vim/bundle/YouCompleteMe
 
 #-----------------Remove CMake------------------
 rm -rf $CMAKENAME
+rm -f $CMAKENAME.tar.gz
+rm -rf $CURSESNAME
+rm -f $CURSESNAME.tar.gz
