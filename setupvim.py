@@ -13,7 +13,7 @@ HOME_DIR = os.getenv("HOME")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--vim-src", action='store_true', help="Compile vim from source. When VIM version is < 8.0")
-parser.add_argument("--vim-dir", default=HOME_DIR + "vim81", help="Directory in which to install VIM")
+parser.add_argument("--vim-dir", default=p.join(HOME_DIR, "vim81"), help="Directory in which to install VIM")
 parser.add_argument("--vim-version", default="v8.1.0000", help="Version of VIM you want")
 parser.add_argument("--no-ycm", action='store_true', help='If passed, do not recompile YCM (if you did so already or something)')
 args = parser.parse_args()
@@ -22,19 +22,24 @@ args = parser.parse_args()
 def call(args):
     '''Calls the command line with args'''
     try:
-        # They say not to use shell=True, but we are not taking external input here. For now.
-        subprocess.check_call(shlex.split(args), stdout=sys.stdout, stdin=sys.stdin, stderr=sys.stderr, shell=True)
+        # We expand the variable names in the arguments right now
+        args = p.expandvars(args)
+        args = shlex.split(args)
+        args = [p.expanduser(arg) for arg in args]
+        subprocess.check_call(args, stdout=sys.stdout, stdin=sys.stdin, stderr=sys.stderr)
     except subprocess.CalledProcessError as error:
-        print("uh oh")
+        print("FAILED:", args)
         sys.exit(1)
 
-call(shlex.split("/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no"))
+call("/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no")
 
 # Add pathogen (rtp manager, necessary)
-call("mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim")
+call("mkdir -p ~/.vim/autoload ~/.vim/bundle")
+call("curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim")
 
 # Adding Vundle (an rtp manager, also necessary)
 if not p.exists(p.expanduser("~/.vim/bundle/Vundle.vim")):
+    print("Obtaining Vundle...")
     call("git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim")
 
 # Install ctags
@@ -57,9 +62,9 @@ f.close()
 
 if not has_base_16:
     with open(p.expanduser("~/.bashrc"), 'a') as f:
-        f.write(base16_comment)
-        f.write(r'''BASE16_SHELL="$HOME/.config/base16-shell/"''')
-        f.write(r'''[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")""''')
+        f.write(base16_comment + "\n")
+        f.write(r'''BASE16_SHELL="$HOME/.config/base16-shell/"''' + "\n")
+        f.write(r'''[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"''' + "\n")
 
 call("vim +PluginInstall +qall")
 
@@ -89,7 +94,8 @@ if args.vim_src:
         call("rm -rf %s" % CURSESNAME)
 
     #------------------Compiling VIM from source-------------
-    call("git clone https://github.com/vim/vim.git")
+    if not p.exists("vim"):
+        call("git clone https://github.com/vim/vim.git")
     os.chdir("vim")
 
     call("git checkout " + args.vim_version)
@@ -108,12 +114,13 @@ if args.vim_src:
                        "--enable-cscope",
                        "--prefix=%s" % args.vim_dir]
 
-    call("LDFLAGS=-L$HOME/usr/local/lib ./configure " + " ".join(configure_flags))
+    os.environ["LDFLAGS"] = p.expandvars("-L$HOME/usr/local/lib")
+    call("./configure " + " ".join(configure_flags))
     call("make")
     call("make install")
 
-    with open(p.expanduser("~/.bashrc")) as f:
-        f.write("alias vim=%s/bin/vim" % args.vim_dir)
+    with open(p.expanduser("~/.bashrc"), 'a') as f:
+        f.write("alias vim=%s/bin/vim" % args.vim_dir + "\n")
     os.chdir(HOME_DIR)
 
 #------------------Getting non-root copy of CMake-----------------------
@@ -127,7 +134,8 @@ if not args.no_ycm:
 
     #-----------------Reinstall YCM-------------------
     os.chdir(p.expanduser("~/.vim/bundle/YouCompleteMe"))
-    call(r'''PATH="$HOME/%s/bin:$PATH" ./install.py --clang-completer --java-completer''' % CMAKENAME)
+    os.environ["PATH"] = p.expandvars("$HOME/%s/bin" % CMAKENAME) + os.pathsep + os.environ["PATH"]
+    call(r'''./install.py --clang-completer --java-completer''')
     os.chdir(HOME_DIR)
 
     #-----------------Remove CMake------------------
