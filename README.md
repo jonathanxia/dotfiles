@@ -27,9 +27,13 @@ and then you can now run (assuming your bashrc is successfully sourced),
 Note that this might overwrite some of your files, and git will complain if you are
 about to do so. You can back them up if you care, delete if you don't.
 
-Then run
+This comes with a Python script to help set up VIM. There are a few options
+available, so you can do `python setupvim.py --help` to see what options
+are available.
 
-`./vimsetup.sh`
+By default, just run
+
+`python setupvim.py`
 
 This script will install all the good stuff, like vim plugins. I use
 base16 colors to normalize the colorschemes.
@@ -48,16 +52,11 @@ have the proper fonts. You'll have to install those...somehow!
 
 You may run into issues about YCM demanding that you have a very new version of
 VIM, or maybe it yelled at you about not having CMake installed. The
-solution to this is to install Vim from source. Take a look at
-`vim_from_source.sh`. Do NOT blindly run this script, take a look at it
-first. Replace all the paths with the correct things.
-
-There are comments that will remind you where to change things. You can
-comment out portions that you don't need (e.g., you already have CMake
-installed, so don't install it). Be sure to find the correct
-config directory for Python.
-
-The last part will then rerun the YCM installation.
+solution to this is to install Vim from source. If this is the case,
+then you should take a look at the `setupvim.py` script.
+You may need to replace the configuration with the proper
+config directories, and you will need to add in Python3 support if you want
+it. Then, you would run `python setupvim.py --vim-src`
 
 Note that you may be missing Python headers. You'll have to install
 them via `apt-get install python3-dev` or `apt-get install python-dev`.
