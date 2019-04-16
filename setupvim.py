@@ -56,7 +56,7 @@ for line in f.readlines():
 f.close()
 
 if not has_base_16:
-    with f as open(p.expanduser("~/.bashrc"), 'a'):
+    with open(p.expanduser("~/.bashrc"), 'a') as f:
         f.write(base16_comment)
         f.write(r'''BASE16_SHELL="$HOME/.config/base16-shell/"''')
         f.write(r'''[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")""''')
@@ -112,7 +112,7 @@ if args.vim_src:
     call("make")
     call("make install")
 
-    with f as open(p.expanduser("~/.bashrc")):
+    with open(p.expanduser("~/.bashrc")) as f:
         f.write("alias vim=%s/bin/vim" % args.vim_dir)
     os.chdir(HOME_DIR)
 
