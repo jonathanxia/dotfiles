@@ -84,9 +84,11 @@ nmap <F9> :Gstatus<CR>
 nmap <F10> :Gcommit%<CR>
 
 set completeopt-=preview "Not have preview window jump out every time
-let base16colorspace=256
-colorscheme base16-google-dark
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 nmap <F11> :LedgerAlign<CR>
