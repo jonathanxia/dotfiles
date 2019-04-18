@@ -112,6 +112,7 @@ if args.vim_src:
                        "--enable-luainterp=yes",
                        "--enable-gui=gtk2",
                        "--enable-cscope",
+                       "--with-x",
                        "--prefix=%s" % args.vim_dir]
 
     os.environ["LDFLAGS"] = p.expandvars("-L$HOME/usr/local/lib")
