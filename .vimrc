@@ -25,6 +25,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ledger/vim-ledger'
 Plugin 'chriskempson/base16-vim.git'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'https://gitlab.com/Dica-Developer/vim-jdb.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -74,8 +75,6 @@ let g:easytags_async=1
 let g:easytags_dynamic_files=1
 
 map <C-n> :NERDTreeTabsToggle<CR>
-map <C-l> :w<CR> :!pdflatex %<CR><CR>
-imap <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
 nmap <F6> :res -2<CR>
@@ -91,19 +90,24 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
-nmap <F11> :LedgerAlign<CR>
-vmap <F11> :LedgerAlign<CR>
+au FileType ledger nmap <buffer> <F11> :LedgerAlign<CR>
+au FileType ledger vmap <buffer> <F11> :LedgerAlign<CR>
+
+au FileType tex map <buffer> <C-l> :w<CR> :!pdflatex %<CR><CR>
+au FileType tex imap <buffer> <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
+
 
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 "Disable YCM for ledger files
 let g:ycm_filetype_blacklist = {'ledger': 1}
 
-highlight SpellCap ctermbg=DarkRed
-highlight SpellBad ctermbg=DarkRed
+highlight SpellCap ctermbg=DarkRed ctermfg=White
+highlight SpellBad ctermbg=DarkRed ctermfg=White
 
 nnoremap <leader>jd :YcmComplete GoTo<CR>
 nnoremap <leader>jr :YcmComplete GoToReferences<CR>
 nnoremap <leader>gd :YcmComplete GetDoc<CR>
 nnoremap <leader>gt :YcmComplete GetType<CR>
 nnoremap <leader>gp :YcmComplete GetParent<CR>
+
