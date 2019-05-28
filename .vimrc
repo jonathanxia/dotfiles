@@ -92,6 +92,7 @@ endif
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 au FileType ledger nmap <buffer> <F11> :LedgerAlign<CR>
 au FileType ledger vmap <buffer> <F11> :LedgerAlign<CR>
+au FileType ledger nmap <buffer> <F12> :call ledger#entry()<CR>
 
 au FileType tex map <buffer> <C-l> :w<CR> :!pdflatex %<CR><CR>
 au FileType tex imap <buffer> <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
