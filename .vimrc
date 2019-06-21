@@ -112,3 +112,4 @@ nnoremap <leader>gd :YcmComplete GetDoc<CR>
 nnoremap <leader>gt :YcmComplete GetType<CR>
 nnoremap <leader>gp :YcmComplete GetParent<CR>
 
+set nohlsearch
