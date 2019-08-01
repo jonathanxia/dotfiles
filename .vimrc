@@ -26,6 +26,8 @@ Plugin 'ledger/vim-ledger'
 Plugin 'chriskempson/base16-vim.git'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'https://gitlab.com/Dica-Developer/vim-jdb.git'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'Vimjas/vim-python-pep8-indent'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -52,10 +54,11 @@ set previewheight=10 "The preview height will be 4 when we open a preview window
 
 "highlights the 79th column
 set colorcolumn=79
-highlight ColorColumn ctermbg=darkgrey
+highlight ColorColumn ctermbg=18
 
 "set numbering on the side
 set number
+set relativenumber
 
 "This allows vim to search for included header files
 let &path.="src/include,/usr/include/,"
@@ -68,6 +71,10 @@ execute pathogen#infect()
 
 let g:airline_section_y='BN: %{bufnr("%")}' "The buffer number in status bar
 let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.dirty='!'
 let g:airline_theme='dark'
 
 "make easy tags run asynchronously
@@ -113,3 +120,11 @@ nnoremap <leader>gt :YcmComplete GetType<CR>
 nnoremap <leader>gp :YcmComplete GetParent<CR>
 
 set nohlsearch
+
+let g:ycm_show_diagnostics_ui = 0
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
