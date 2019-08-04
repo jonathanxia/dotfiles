@@ -76,6 +76,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.dirty='!'
 let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
 
 "make easy tags run asynchronously
 let g:easytags_async=1
@@ -88,6 +89,8 @@ nmap <F6> :res -2<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 nmap <F9> :Gstatus<CR>
 nmap <F10> :Gcommit%<CR>
+"Shortcut to convert camel case into snake case
+vmap <leader>s :s#\(\<\u\l\+\\|\l\+\)\(\u\)#\l\1_\l\2#g<CR>
 
 set completeopt-=preview "Not have preview window jump out every time
 
