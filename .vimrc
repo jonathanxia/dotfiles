@@ -28,6 +28,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'https://gitlab.com/Dica-Developer/vim-jdb.git'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'edkolev/tmuxline.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -77,6 +78,8 @@ endif
 let g:airline_symbols.dirty='!'
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
+let airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tmuxline#enabled = 0
 
 "make easy tags run asynchronously
 let g:easytags_async=1
