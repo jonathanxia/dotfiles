@@ -18,19 +18,12 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'craigemery/vim-autotag'
-Plugin 'majutsushi/tagbar'
 Plugin 'ledger/vim-ledger'
 Plugin 'chriskempson/base16-vim.git'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'https://gitlab.com/Dica-Developer/vim-jdb.git'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'edkolev/promptline.vim'
-" For opening quickfix in the right window
 Plugin 'yssl/QFEnter'
-" For ack integration in vim
 Plugin 'mileszs/ack.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,10 +79,6 @@ let g:airline#extensions#tabline#enabled = 1
 let airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tmuxline#enabled = 0
 
-"make easy tags run asynchronously
-let g:easytags_async=1
-let g:easytags_dynamic_files=1
-
 map <C-n> :NERDTreeTabsToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
@@ -115,24 +104,10 @@ au FileType ledger nmap <buffer> <F12> :call ledger#entry()<CR>
 au FileType tex map <buffer> <C-l> :w<CR> :!pdflatex %<CR><CR>
 au FileType tex imap <buffer> <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
 
-
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=0
-"Disable YCM for ledger files
-let g:ycm_filetype_blacklist = {'ledger': 1}
-
 highlight SpellCap ctermbg=DarkRed ctermfg=White
 highlight SpellBad ctermbg=DarkRed ctermfg=White
 
-nnoremap <leader>jd :YcmComplete GoTo<CR>
-nnoremap <leader>jr :YcmComplete GoToReferences<CR>
-nnoremap <leader>gd :YcmComplete GetDoc<CR>
-nnoremap <leader>gt :YcmComplete GetType<CR>
-nnoremap <leader>gp :YcmComplete GetParent<CR>
-
 set nohlsearch
-
-let g:ycm_show_diagnostics_ui = 0
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
