@@ -22,7 +22,6 @@ Plugin 'ledger/vim-ledger'
 Plugin 'chriskempson/base16-vim.git'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'yssl/QFEnter'
 Plugin 'mileszs/ack.vim'
 " All of your Plugins must be added before the following line
