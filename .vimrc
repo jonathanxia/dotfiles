@@ -26,8 +26,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'https://gitlab.com/Dica-Developer/vim-jdb.git'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'edkolev/promptline.vim'
 " For opening quickfix in the right window
 Plugin 'yssl/QFEnter'
 " For ack integration in vim
