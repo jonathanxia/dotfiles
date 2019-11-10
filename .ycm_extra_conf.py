@@ -29,12 +29,4 @@ def Settings(**kwargs):
                     'flags': ['-x', 'c', '-Wall', '-Wextra', '-Werror'],
                     'override_filename': filename
                     }
-    else:
-        return {
-                'interpreter_path': '/usr/local/bin/python',
-                'sys_path': [
-                    '/prod/tools/base/lib/python/',
-                    '/prod/tools/eq/src/lib/python/',
-                    '/codemill/xiaj/algor/exploded_algor/'
-                    ]
-                }
+
