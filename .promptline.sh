@@ -1,8 +1,13 @@
 #
 # This shell prompt config file was created by promptline.vim
+# with manual edits
 #
 function __promptline_host {
-  printf "$HOSTPROMPT"
+  if [ -z $HOSTPROMPT ]; then
+    printf "\h"
+  else
+    printf "$HOSTPROMPT"
+  fi
 }
 
 function __promptline_last_exit_code {
