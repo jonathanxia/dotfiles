@@ -124,6 +124,7 @@ highlight SpellBad ctermbg=DarkRed ctermfg=White
 
 nnoremap <leader>jd :YcmComplete GoTo<CR>
 nnoremap <leader>jr :YcmComplete GoToReferences<CR>
+nnoremap <leader>jc :YcmComplete GoToDeclaration<CR>
 nnoremap <leader>gd :YcmComplete GetDoc<CR>
 nnoremap <leader>gt :YcmComplete GetType<CR>
 nnoremap <leader>gp :YcmComplete GetParent<CR>
