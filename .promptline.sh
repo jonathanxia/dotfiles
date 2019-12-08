@@ -92,15 +92,8 @@ function __promptline_wrapper {
 function __promptline {
   local last_exit_code="${PROMPTLINE_LAST_EXIT_CODE:-$?}"
 
-  # local esc=$'[' end_esc=m
   local esc="\033[" end_esc="m"
-  if [[ -n ${ZSH_VERSION-} ]]; then
-    local noprint='%{' end_noprint='%}'
-  elif [[ -n ${FISH_VERSION-} ]]; then
-    local noprint='' end_noprint=''
-  else
-    local noprint='\[' end_noprint='\]'
-  fi
+  local noprint='\[' end_noprint='\]'
   local wrap="$noprint$esc" end_wrap="$end_esc$end_noprint"
   local space=" "
   local sep=""
