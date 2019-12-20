@@ -67,18 +67,7 @@ function __promptline_vcs_branch {
   return 1
 }
 function __promptline_cwd {
-  local dir_limit="1000"
-  local truncation="⋯"
-  local first_char
-  local part_count=0
-  local formatted_cwd=""
-  local dir_sep="  "
-  local tilde="~"
-
-  local cwd="${PWD/#$HOME/$tilde}"
-  local oldcwd=$cwd
-
-  printf "%s" "$oldcwd"
+  printf "\w"
 }
 
 function __promptline_wrapper {
@@ -121,5 +110,5 @@ function __promptline {
 }
 
 if [[ ! "$PROMPT_COMMAND" == *__promptline* ]]; then
-  PROMPT_COMMAND='__promptline;'$'\n'"$PROMPT_COMMAND"
+  PROMPT_COMMAND='__promptline; '"$PROMPT_COMMAND"
 fi
