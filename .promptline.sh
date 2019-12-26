@@ -129,9 +129,9 @@ function __promptline {
   local warn_fg="${wrap}38;5;231${end_wrap}"
   local warn_bg="${wrap}48;5;52${end_wrap}"
   local warn_sep_fg="${wrap}38;5;52${end_wrap}"
-  local y_fg="${wrap}38;5;250${end_wrap}"
-  local y_bg="${wrap}48;5;236${end_wrap}"
-  local y_sep_fg="${wrap}38;5;236${end_wrap}"
+  local y_fg="${wrap}0;30${end_wrap}"
+  local y_bg="${wrap}43${end_wrap}"
+  local y_sep_fg="${wrap}33${end_wrap}"
   PS1="$(__promptline_ps1)"
 }
 
