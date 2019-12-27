@@ -1,0 +1,43 @@
+set nocompatible
+filetype off
+syntax on
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'craigemery/vim-autotag'
+Plugin 'majutsushi/tagbar'
+Plugin 'ledger/vim-ledger'
+Plugin 'chriskempson/base16-vim.git'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'https://gitlab.com/Dica-Developer/vim-jdb.git'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'Vimjas/vim-python-pep8-indent'
+" For opening quickfix in the right window
+Plugin 'yssl/QFEnter'
+" For ack integration in vim
+Plugin 'mileszs/ack.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Put your non-Plugin stuff after this line
+
+if filereadable(expand("~/.shared_vimrc"))
+    source ~/.shared_vimrc
+endif
