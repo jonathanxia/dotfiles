@@ -2,6 +2,57 @@
 # This shell prompt config file was created by promptline.vim
 # with manual edits
 #
+function PreExecCommand() {
+    # The TIMER_ENABLE variable ensures that we only get to call this
+    # once unless we flip the flag again
+    if [[ -n $TIMER_ENABLE ]] ; then
+        COMMAND_START_TIME="$(date +%s%N)"
+        unset TIMER_ENABLE
+    fi
+}
+trap 'PreExecCommand' DEBUG
+
+# Signal to print 0s
+FIRST_COMMAND=1
+
+function __promptline_exec_time {
+    if [[ -n $FIRST_COMMAND ]] ; then
+        TIME_TO_DISPLAY="0s"
+        return
+    fi
+
+    # Number of nanoseconds in these units
+    local MSEC=1000000
+    local SEC=$(($MSEC * 1000))
+    local MIN=$((60 * $SEC))
+    local HOUR=$((60 * $MIN))
+    local DAY=$((24 * $HOUR))
+
+    local start_time=$COMMAND_START_TIME
+    local end_time=$(date +%s%N)
+    local duration=$(($end_time - $start_time))
+
+    local num_days=$(($duration / $DAY))
+    local num_hours=$(($duration % $DAY / $HOUR))
+    local num_mins=$(($duration % $HOUR / $MIN))
+    local num_secs=$(($duration % $MIN / $SEC))
+    local num_msecs=$(($duration % $SEC / $MSEC))
+
+    TIME_TO_DISPLAY=''
+
+    if [[ $num_days -gt 0 ]]; then
+        TIME_TO_DISPLAY="${TIME_TO_DISPLAY}${num_days}d"
+    fi
+    if [[ $num_hours -gt 0 ]]; then
+        TIME_TO_DISPLAY="${TIME_TO_DISPLAY}${num_hours}h"
+    fi
+    if [[ $num_mins -gt 0 ]]; then
+        TIME_TO_DISPLAY="${TIME_TO_DISPLAY}${num_mins}m"
+    fi
+    local msec_string=$(printf '%03d' $num_msecs)
+    TIME_TO_DISPLAY="${TIME_TO_DISPLAY}${num_secs}s$msec_string"
+}
+
 function __promptline_host {
   if [ -z $HOSTPROMPT ]; then
     printf "\h"
@@ -36,7 +87,8 @@ function __promptline_ps1 {
   slice_empty_prefix="${a_fg}${a_bg}${space}"
   [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
   # section "a" slices
-  __promptline_default_wrapper "\t"
+  __promptline_exec_time
+  __promptline_default_wrapper "$TIME_TO_DISPLAY"
 
   # section "b" header
   slice_prefix="${b_bg}${sep}${b_fg}${b_bg}${space}"
@@ -104,7 +156,7 @@ function __promptline_wrapper {
   printf "%s" "${2}${1}${3}"
 }
 
-function __promptline {
+function __promptline_ {
   local last_exit_code="${PROMPTLINE_LAST_EXIT_CODE:-$?}"
 
   local esc="\033[" end_esc="m"
@@ -118,14 +170,14 @@ function __promptline {
   local reset="${wrap}00${end_wrap}"
   local reset_bg="${wrap}49${end_wrap}"
   local a_fg="${wrap}1;97${end_wrap}"
-  local a_bg="${wrap}44${end_wrap}"
-  local a_sep_fg="${wrap}0;34${end_wrap}"
-  local b_fg="${wrap}1;97${end_wrap}"
-  local b_bg="${wrap}41${end_wrap}"
-  local b_sep_fg="${wrap}31${end_wrap}"
+  local a_bg="${wrap}48;5;1${end_wrap}"
+  local a_sep_fg="${wrap}38;5;1${end_wrap}"
+  local b_fg="${wrap}38;5;18${end_wrap}"
+  local b_bg="${wrap}48;5;21${end_wrap}"
+  local b_sep_fg="${wrap}38;5;21${end_wrap}"
   local c_fg="${wrap}97${end_wrap}"
-  local c_bg="${wrap}42${end_wrap}"
-  local c_sep_fg="${wrap}32${end_wrap}"
+  local c_bg="${wrap}48;5;19${end_wrap}"
+  local c_sep_fg="${wrap}38;5;19${end_wrap}"
   local warn_fg="${wrap}38;5;231${end_wrap}"
   local warn_bg="${wrap}48;5;52${end_wrap}"
   local warn_sep_fg="${wrap}38;5;52${end_wrap}"
@@ -133,8 +185,18 @@ function __promptline {
   local y_bg="${wrap}43${end_wrap}"
   local y_sep_fg="${wrap}33${end_wrap}"
   PS1="$(__promptline_ps1)"
+
+  # Flip the switch to say that we should record the start time now
+  unset FIRST_COMMAND
 }
 
-if [[ ! "$PROMPT_COMMAND" == *__promptline* ]]; then
-  PROMPT_COMMAND='__promptline; '"$PROMPT_COMMAND"
+function __promptline_enable_timer {
+    TIMER_ENABLE=1
+}
+
+if [[ ! "$PROMPT_COMMAND" == *__promptline_* ]]; then
+  PROMPT_COMMAND='__promptline_; '"$PROMPT_COMMAND"' BCT_AT_PROMPT=0;'
+fi
+if [[ ! "$PROMPT_COMMAND" == *__promptline_enable_timer* ]]; then
+  PROMPT_COMMAND="$PROMPT_COMMAND"' __promptline_enable_timer;'
 fi
