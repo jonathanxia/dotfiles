@@ -102,3 +102,8 @@ nmap ga <Plug>(EasyAlign)
 "Tidy-imports
 nnoremap <leader>t :w<CR> :!tidy-imports %<CR>
 nnoremap <leader>wt :w<CR> :!tidy-imports % --align=42<CR>
+
+" Use ag instead of ack for vimack
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
