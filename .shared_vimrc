@@ -80,8 +80,7 @@ let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 "Disable YCM for ledger files
 let g:ycm_filetype_blacklist = {'ledger': 1}
-"Get that signature help!
-let g:ycm_auto_trigger=1
+let g:ycm_disable_signature_help=1
 
 highlight SpellCap ctermbg=DarkRed ctermfg=White
 highlight SpellBad ctermbg=DarkRed ctermfg=White
