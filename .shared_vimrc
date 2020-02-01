@@ -49,6 +49,7 @@ let g:easytags_async=1
 let g:easytags_dynamic_files=1
 
 map <C-n> :NERDTreeTabsToggle<CR>
+nmap <leader>n :NERDTreeFind<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :res +2<CR>
 nmap <F6> :res -2<CR>
@@ -105,6 +106,8 @@ nmap ga <Plug>(EasyAlign)
 "Tidy-imports
 nnoremap <leader>t :w<CR> :!tidy-imports %<CR>
 nnoremap <leader>wt :w<CR> :!tidy-imports % --align=42<CR>
+
+nnoremap ,co :botright cwindow<CR>
 
 " Use ag instead of ack for vimack
 if executable('ag')
