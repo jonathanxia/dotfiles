@@ -32,6 +32,10 @@ set laststatus=2
 " Search in the current working directory rather than the root of a git
 " repo
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|class)$',
+  \ }
 
 let g:airline_section_y='BN: %{bufnr("%")}' "The buffer number in status bar
 let g:airline_powerline_fonts=1 "enables powerline fonts to make it look nicer
