@@ -16,7 +16,7 @@ set previewheight=10 "The preview height will be 4 when we open a preview window
 
 "highlights the 79th column
 set colorcolumn=79
-highlight ColorColumn ctermbg=18
+highlight ColorColumn ctermbg=235
 
 "set numbering on the side
 set number
