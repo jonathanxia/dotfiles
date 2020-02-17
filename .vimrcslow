@@ -30,6 +30,8 @@ Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'yssl/QFEnter'
 " For ack integration in vim
 Plugin 'mileszs/ack.vim'
+"Restoring vim sessions
+Plugin 'tpope/vim-obsession'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
