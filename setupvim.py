@@ -33,10 +33,6 @@ def call(args):
 
 call("/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no")
 
-# Add pathogen (rtp manager, necessary)
-call("mkdir -p ~/.vim/autoload ~/.vim/bundle")
-call("curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim")
-
 # Adding Vundle (an rtp manager, also necessary)
 if not p.exists(p.expanduser("~/.vim/bundle/Vundle.vim")):
     print("Obtaining Vundle...")
