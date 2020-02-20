@@ -66,7 +66,7 @@ if not has_base_16:
         f.write(r'''BASE16_SHELL="$HOME/.config/base16-shell/"''' + "\n")
         f.write(r'''[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"''' + "\n")
 
-call("vim +PluginInstall +qall")
+call("vim +PluginInstall +qall -u ~/.vimrcslow")
 
 print("Running color test")
 os.chdir(p.expanduser("~/.config/base16-shell"))
