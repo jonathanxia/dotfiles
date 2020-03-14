@@ -72,6 +72,10 @@ os.chdir(p.expanduser("~"))
 
 call(r'''git config --global alias.lg "log --graph --pretty=format:'%C(yellow)%d%Creset %C(cyan)%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --all"''')
 
+# Get the tmux plugin manager
+if not p.exists(p.expanduser("~/.tmux")):
+    call("git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm")
+
 
 if args.vim_src:
     # Now we get the curses library
