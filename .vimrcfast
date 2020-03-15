@@ -24,6 +24,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'yssl/QFEnter'
 Plugin 'mileszs/ack.vim'
+Plugin 'easymotion/vim-easymotion'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -32,6 +32,8 @@ Plugin 'yssl/QFEnter'
 Plugin 'mileszs/ack.vim'
 "Restoring vim sessions
 Plugin 'tpope/vim-obsession'
+"Fast navigation
+Plugin 'easymotion/vim-easymotion'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
