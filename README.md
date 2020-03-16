@@ -46,7 +46,12 @@ to see if you got it to work. The last few lines should *not* be blue.
 
 You may also need to go here: https://github.com/powerline/fonts for the fonts to make powerline work.
 If you see a bunch of question marks on your powerline status bar on the bottom, that means you don't
-have the proper fonts. You'll have to install those...somehow!
+have the proper fonts. You'll have to install those...somehow! On Windows, you can
+download the file and click install fonts. Then in your terminal, change it to
+that font. On Linux, you should follow their instructions.
+
+For tmux ressurect, make sure you launch tmux and hit <prefix> shift I. This
+will install the tmux plugin manager.
 
 ## YCM
 
