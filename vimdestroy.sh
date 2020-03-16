@@ -16,6 +16,6 @@ rm -fv ~/.vimtags
 rm -fv ~/.vimrc_background
 rm -fv ~/.viminfo
 rm -fv ~/README.md
-rm -fv ~/vim
-rm -fv ~/vim81
-rm -fv ~/.tmux
+rm -rfv ~/vim
+rm -rfv ~/vim81
+rm -rfv ~/.tmux
