@@ -97,7 +97,8 @@ nnoremap <leader>gd :YcmComplete GetDoc<CR>
 nnoremap <leader>gt :YcmComplete GetType<CR>
 nnoremap <leader>gp :YcmComplete GetParent<CR>
 
-set nohlsearch
+"set nohlsearch
+set incsearch
 
 let g:ycm_show_diagnostics_ui = 0
 
