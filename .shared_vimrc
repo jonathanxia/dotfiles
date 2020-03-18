@@ -79,6 +79,8 @@ au FileType tex map <buffer> <C-l> :w<CR> :!pdflatex %<CR><CR>
 au FileType tex imap <buffer> <C-l> <ESC> :w<CR> :!latexmk -pdf<CR><CR>
 "Make latex files indent by 2 spaces, not 4
 au FileType tex set shiftwidth=2
+"Easy mapping to make a list
+au FileType tex imap <buffer> iiii \begin{itemize}<CR>\item<CR>\end{itemize}<ESC>k$
 
 
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
