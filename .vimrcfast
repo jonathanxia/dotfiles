@@ -17,7 +17,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ledger/vim-ledger'
 Plugin 'jonathanxia/base16-vim.git'
 Plugin 'junegunn/vim-easy-align'
@@ -25,6 +24,8 @@ Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'yssl/QFEnter'
 Plugin 'mileszs/ack.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
