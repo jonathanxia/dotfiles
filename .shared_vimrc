@@ -113,6 +113,7 @@ nmap ga <Plug>(EasyAlign)
 "Tidy-imports
 nnoremap <leader>t :w<CR> :!tidy-imports %<CR>
 nnoremap <leader>wt :w<CR> :!tidy-imports % --align=42<CR>
+nnoremap <leader>mp :w<CR> :!mypy % --ignore-missing-imports --follow-imports skip<CR>
 
 nnoremap ,co :botright cwindow<CR>
 
