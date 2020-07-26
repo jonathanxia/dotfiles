@@ -127,8 +127,8 @@ if args.vim_src:
 #------------------Getting non-root copy of CMake-----------------------
 if not args.no_ycm:
     # CHANGE ME! Get the most recent version of cmake and replace the link here!
-    CMAKENAME="cmake-3.14.1-Linux-x86_64"
-    call("wget https://github.com/Kitware/CMake/releases/download/v3.14.1/%s.tar.gz" % CMAKENAME)
+    CMAKENAME="cmake-3.18.0-Linux-x86_64"
+    call("wget https://github.com/Kitware/CMake/releases/download/v3.18.0/%s.tar.gz" % CMAKENAME)
     call("tar xvzf %s.tar.gz" % CMAKENAME)
     # clean it up
     call("rm -f %s.tar.gz" % CMAKENAME)
