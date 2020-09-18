@@ -82,6 +82,8 @@ au FileType tex set shiftwidth=2
 "Easy mapping to make a list
 au FileType tex imap <buffer> iiii \begin{itemize}<CR>\item<CR>\end{itemize}<ESC>k$
 
+au FileType json set shiftwidth=4
+
 autocmd InsertEnter * checktime
 
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
