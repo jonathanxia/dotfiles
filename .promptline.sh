@@ -97,7 +97,13 @@ function __promptline_ps1 {
   slice_empty_prefix="${b_fg}${b_bg}${space}"
   [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
   # section "b" slices
-  __promptline_default_wrapper "$USER@$(__promptline_host)"
+  local prefix=
+  if [ -z $VIRTUAL_ENV ]; then
+    prefix=
+  else
+    prefix="($(basename $VIRTUAL_ENV)) "
+  fi
+  __promptline_default_wrapper "$prefix$USER@$(__promptline_host)"
 
   # section "c" header
   slice_prefix="${c_bg}${sep}${c_fg}${c_bg}${space}"
