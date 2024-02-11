@@ -15,3 +15,8 @@ alias vim='gvim -v -u ~/.vimrcfast'
 
 alias gopen='gdec Data.zip; unzip Data.zip'
 alias gclose='srm -rvz Data Data.zip'
+
+alias gca='git add -A; git commit'
+
+alias gpp='g++ -g -Wno-return-type -Wshadow -O0 -std=c++17 -D_GLIBCXX_DEBUG -fsanitize=undefined,address -ftrapv -DDEBUG'
+alias gdbq='gdb --quiet a.out'
