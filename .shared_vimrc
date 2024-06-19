@@ -117,3 +117,5 @@ if executable('ag')
 endif
 
 nnoremap <C-p> :Files<CR>
+
+set termguicolors
